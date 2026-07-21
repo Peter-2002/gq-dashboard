@@ -292,7 +292,7 @@
   "workload": [
     {
       "name": "Kittiphoom Treesam (Pea)",
-      "team": "Unassigned team",
+      "team": "Planner",
       "total": 7,
       "completed": 0,
       "in_progress": 2,
@@ -300,7 +300,7 @@
     },
     {
       "name": "Peter",
-      "team": "Unassigned team",
+      "team": "Graphic",
       "total": 6,
       "completed": 0,
       "in_progress": 1,
@@ -317,17 +317,37 @@
   ],
   "team_workload": [
     {
-      "name": "Unassigned team",
-      "total": 8,
+      "name": "Planner",
+      "total": 7,
       "completed": 0,
       "in_progress": 2,
-      "not_started": 6,
+      "not_started": 5,
       "people": [
-        "Kittiphoom Treesam (Pea)",
-        "Peter",
+        "Kittiphoom Treesam (Pea)"
+      ],
+      "headcount": 1
+    },
+    {
+      "name": "Graphic",
+      "total": 6,
+      "completed": 0,
+      "in_progress": 1,
+      "not_started": 5,
+      "people": [
+        "Peter"
+      ],
+      "headcount": 1
+    },
+    {
+      "name": "Unassigned team",
+      "total": 3,
+      "completed": 0,
+      "in_progress": 0,
+      "not_started": 3,
+      "people": [
         "Saran  Wisedcharakun (Mee)"
       ],
-      "headcount": 3
+      "headcount": 1
     }
   ],
   "turnaround": {
