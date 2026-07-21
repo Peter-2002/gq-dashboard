@@ -109,7 +109,9 @@
           "status": "Not Started",
           "priority": "Medium",
           "assignees": [
-            "Kittiphoom Treesam (Pea)"
+            "Kittiphoom Treesam (Pea)",
+            "Rahas Boobphakam (Code)",
+            "Saran  Wisedcharakun (Mee)"
           ],
           "created": "2026-07-21",
           "due": "2026-07-24",
@@ -127,48 +129,6 @@
       ],
       "completion_pct": 0,
       "start_date": "2026-07-13",
-      "end_date": ""
-    },
-    {
-      "id": "GQ Other",
-      "name": "GQ Other",
-      "total": 1,
-      "completed": 0,
-      "in_progress": 0,
-      "not_started": 1,
-      "overdue": 0,
-      "urgent": 1,
-      "buckets": [
-        "New Request"
-      ],
-      "tasks": [
-        {
-          "id": "DM-5",
-          "name": "Luem Hung 4",
-          "bucket": "New Request",
-          "status": "Not Started",
-          "priority": "High",
-          "assignees": [
-            "Saran  Wisedcharakun (Mee)",
-            "Kittiphoom Treesam (Pea)",
-            "Peter"
-          ],
-          "created": "2026-07-20",
-          "due": "2026-07-24",
-          "start": "2026-07-22",
-          "completed": "",
-          "overdue": false,
-          "labels": "",
-          "project": "GQ Other",
-          "project_id": "GQ Other",
-          "turnaround_days": null,
-          "work_type": "Renovation",
-          "tier": "Tier 3",
-          "delay_reason": null
-        }
-      ],
-      "completion_pct": 0,
-      "start_date": "2026-07-22",
       "end_date": ""
     },
     {
@@ -215,12 +175,12 @@
     }
   ],
   "overall": {
-    "total": 6,
+    "total": 5,
     "completed": 0,
     "in_progress": 2,
-    "not_started": 4,
+    "not_started": 3,
     "overdue": 2,
-    "urgent": 1,
+    "urgent": 0,
     "unassigned": 0,
     "completion_pct": 0,
     "avg_turnaround_days": 0.0
@@ -229,18 +189,18 @@
     {
       "name": "Kittiphoom Treesam (Pea)",
       "team": "Planner",
-      "total": 6,
+      "total": 5,
       "completed": 0,
       "in_progress": 2,
-      "not_started": 4
+      "not_started": 3
     },
     {
       "name": "Peter",
       "team": "Graphic",
-      "total": 4,
+      "total": 3,
       "completed": 0,
       "in_progress": 1,
-      "not_started": 3
+      "not_started": 2
     },
     {
       "name": "Saran  Wisedcharakun (Mee)",
@@ -249,15 +209,23 @@
       "completed": 0,
       "in_progress": 0,
       "not_started": 3
+    },
+    {
+      "name": "Rahas Boobphakam (Code)",
+      "team": "Unassigned team",
+      "total": 1,
+      "completed": 0,
+      "in_progress": 0,
+      "not_started": 1
     }
   ],
   "team_workload": [
     {
       "name": "Planner",
-      "total": 6,
+      "total": 5,
       "completed": 0,
       "in_progress": 2,
-      "not_started": 4,
+      "not_started": 3,
       "people": [
         "Kittiphoom Treesam (Pea)"
       ],
@@ -265,10 +233,10 @@
     },
     {
       "name": "Graphic",
-      "total": 4,
+      "total": 3,
       "completed": 0,
       "in_progress": 1,
-      "not_started": 3,
+      "not_started": 2,
       "people": [
         "Peter"
       ],
@@ -281,9 +249,10 @@
       "in_progress": 0,
       "not_started": 3,
       "people": [
+        "Rahas Boobphakam (Code)",
         "Saran  Wisedcharakun (Mee)"
       ],
-      "headcount": 1
+      "headcount": 2
     }
   ],
   "turnaround": {
@@ -292,13 +261,13 @@
   },
   "deliverable_types": [
     {
-      "type": "Renovation",
-      "count": 3,
+      "type": "Campaign",
+      "count": 2,
       "completed": 0,
-      "n": 3
+      "n": 2
     },
     {
-      "type": "Campaign",
+      "type": "Renovation",
       "count": 2,
       "completed": 0,
       "n": 2
@@ -338,24 +307,14 @@
   ],
   "upcoming": [
     {
-      "id": "DM-5",
-      "name": "Luem Hung 4",
-      "project": "GQ Other",
-      "due": "2026-07-24",
-      "assignees": [
-        "Saran  Wisedcharakun (Mee)",
-        "Kittiphoom Treesam (Pea)",
-        "Peter"
-      ],
-      "priority": "High"
-    },
-    {
       "id": "DM-8",
       "name": "New Job for Cool tech",
       "project": "GQ Easy",
       "due": "2026-07-24",
       "assignees": [
-        "Kittiphoom Treesam (Pea)"
+        "Kittiphoom Treesam (Pea)",
+        "Rahas Boobphakam (Code)",
+        "Saran  Wisedcharakun (Mee)"
       ],
       "priority": "Medium"
     },
@@ -383,9 +342,9 @@
     }
   ],
   "exec_summary": {
-    "headline": "0 of 6 tasks complete (0%).",
+    "headline": "0 of 5 tasks complete (0%).",
     "overdue": 2,
-    "urgent": 1,
+    "urgent": 0,
     "in_progress": 2,
     "avg_turnaround_days": 0.0
   }
