@@ -43,47 +43,6 @@
       "end_date": ""
     },
     {
-      "id": "GQ Hero",
-      "name": "GQ Hero",
-      "total": 1,
-      "completed": 0,
-      "in_progress": 0,
-      "not_started": 1,
-      "overdue": 0,
-      "urgent": 1,
-      "buckets": [
-        "New Request"
-      ],
-      "tasks": [
-        {
-          "id": "DM-3",
-          "name": "HEalthy Fling 2",
-          "bucket": "New Request",
-          "status": "Not Started",
-          "priority": "High",
-          "assignees": [
-            "Kittiphoom Treesam (Pea)",
-            "Peter"
-          ],
-          "created": "2026-07-20",
-          "due": "2026-07-23",
-          "start": "2026-07-21",
-          "completed": "",
-          "overdue": false,
-          "labels": "",
-          "project": "GQ Hero",
-          "project_id": "GQ Hero",
-          "turnaround_days": null,
-          "work_type": "Commercial",
-          "tier": "Tier 3",
-          "delay_reason": "Waiting for Approval"
-        }
-      ],
-      "completion_pct": 0,
-      "start_date": "2026-07-21",
-      "end_date": ""
-    },
-    {
       "id": "GQ Easy",
       "name": "GQ Easy",
       "total": 3,
@@ -256,12 +215,12 @@
     }
   ],
   "overall": {
-    "total": 7,
+    "total": 6,
     "completed": 0,
     "in_progress": 2,
-    "not_started": 5,
+    "not_started": 4,
     "overdue": 2,
-    "urgent": 2,
+    "urgent": 1,
     "unassigned": 0,
     "completion_pct": 0,
     "avg_turnaround_days": 0.0
@@ -270,18 +229,18 @@
     {
       "name": "Kittiphoom Treesam (Pea)",
       "team": "Planner",
-      "total": 7,
+      "total": 6,
       "completed": 0,
       "in_progress": 2,
-      "not_started": 5
+      "not_started": 4
     },
     {
       "name": "Peter",
       "team": "Graphic",
-      "total": 5,
+      "total": 4,
       "completed": 0,
       "in_progress": 1,
-      "not_started": 4
+      "not_started": 3
     },
     {
       "name": "Saran  Wisedcharakun (Mee)",
@@ -295,10 +254,10 @@
   "team_workload": [
     {
       "name": "Planner",
-      "total": 7,
+      "total": 6,
       "completed": 0,
       "in_progress": 2,
-      "not_started": 5,
+      "not_started": 4,
       "people": [
         "Kittiphoom Treesam (Pea)"
       ],
@@ -306,10 +265,10 @@
     },
     {
       "name": "Graphic",
-      "total": 5,
+      "total": 4,
       "completed": 0,
       "in_progress": 1,
-      "not_started": 4,
+      "not_started": 3,
       "people": [
         "Peter"
       ],
@@ -345,12 +304,6 @@
       "n": 2
     },
     {
-      "type": "Commercial",
-      "count": 1,
-      "completed": 0,
-      "n": 1
-    },
-    {
       "type": "Always-on",
       "count": 1,
       "completed": 0,
@@ -384,17 +337,6 @@
     }
   ],
   "upcoming": [
-    {
-      "id": "DM-3",
-      "name": "HEalthy Fling 2",
-      "project": "GQ Hero",
-      "due": "2026-07-23",
-      "assignees": [
-        "Kittiphoom Treesam (Pea)",
-        "Peter"
-      ],
-      "priority": "High"
-    },
     {
       "id": "DM-5",
       "name": "Luem Hung 4",
@@ -441,9 +383,9 @@
     }
   ],
   "exec_summary": {
-    "headline": "0 of 7 tasks complete (0%).",
+    "headline": "0 of 6 tasks complete (0%).",
     "overdue": 2,
-    "urgent": 2,
+    "urgent": 1,
     "in_progress": 2,
     "avg_turnaround_days": 0.0
   }
