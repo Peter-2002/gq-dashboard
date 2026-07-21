@@ -3,7 +3,7 @@ name: Update dashboard data from Jira
 # When this runs:
 on:
   schedule:
-    - cron: "/5 * * * *"      # every hour, on the hour (UTC)
+    - cron: "*5 * * * *"      # every hour, on the hour (UTC)
   workflow_dispatch: {}        # also lets you run it manually from the Actions tab
 
 permissions:
