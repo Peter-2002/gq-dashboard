@@ -4,15 +4,14 @@
     {
       "id": "GQ Everyday",
       "name": "GQ Everyday",
-      "total": 2,
+      "total": 1,
       "completed": 0,
       "in_progress": 1,
-      "not_started": 1,
+      "not_started": 0,
       "overdue": 1,
       "urgent": 0,
       "buckets": [
-        "In Planning",
-        "New Request"
+        "In Planning"
       ],
       "tasks": [
         {
@@ -36,28 +35,6 @@
           "turnaround_days": null,
           "work_type": "Campaign",
           "tier": "Tier 2",
-          "delay_reason": null
-        },
-        {
-          "id": "DM-2",
-          "name": "Healthy Fling - Sell",
-          "bucket": "New Request",
-          "status": "Not Started",
-          "priority": "Medium",
-          "assignees": [
-            "Peter"
-          ],
-          "created": "2026-07-16",
-          "due": "2026-07-25",
-          "start": "2026-07-22",
-          "completed": "",
-          "overdue": false,
-          "labels": "",
-          "project": "GQ Everyday",
-          "project_id": "GQ Everyday",
-          "turnaround_days": null,
-          "work_type": "Renovation",
-          "tier": "N/A",
           "delay_reason": null
         }
       ],
@@ -279,10 +256,10 @@
     }
   ],
   "overall": {
-    "total": 8,
+    "total": 7,
     "completed": 0,
     "in_progress": 2,
-    "not_started": 6,
+    "not_started": 5,
     "overdue": 2,
     "urgent": 2,
     "unassigned": 0,
@@ -301,10 +278,10 @@
     {
       "name": "Peter",
       "team": "Graphic",
-      "total": 6,
+      "total": 5,
       "completed": 0,
       "in_progress": 1,
-      "not_started": 5
+      "not_started": 4
     },
     {
       "name": "Saran  Wisedcharakun (Mee)",
@@ -329,10 +306,10 @@
     },
     {
       "name": "Graphic",
-      "total": 6,
+      "total": 5,
       "completed": 0,
       "in_progress": 1,
-      "not_started": 5,
+      "not_started": 4,
       "people": [
         "Peter"
       ],
@@ -357,9 +334,9 @@
   "deliverable_types": [
     {
       "type": "Renovation",
-      "count": 4,
+      "count": 3,
       "completed": 0,
-      "n": 4
+      "n": 3
     },
     {
       "type": "Campaign",
@@ -441,16 +418,6 @@
       "priority": "Medium"
     },
     {
-      "id": "DM-2",
-      "name": "Healthy Fling - Sell",
-      "project": "GQ Everyday",
-      "due": "2026-07-25",
-      "assignees": [
-        "Peter"
-      ],
-      "priority": "Medium"
-    },
-    {
       "id": "DM-4",
       "name": "Luem Hung 3",
       "project": "GQ Easy",
@@ -474,7 +441,7 @@
     }
   ],
   "exec_summary": {
-    "headline": "0 of 8 tasks complete (0%).",
+    "headline": "0 of 7 tasks complete (0%).",
     "overdue": 2,
     "urgent": 2,
     "in_progress": 2,
