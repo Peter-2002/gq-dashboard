@@ -4,14 +4,15 @@
     {
       "id": "GQ Everyday",
       "name": "GQ Everyday",
-      "total": 1,
+      "total": 2,
       "completed": 0,
       "in_progress": 1,
-      "not_started": 0,
+      "not_started": 1,
       "overdue": 1,
       "urgent": 0,
       "buckets": [
-        "In Planning"
+        "In Planning",
+        "New Request"
       ],
       "tasks": [
         {
@@ -36,25 +37,7 @@
           "work_type": "Campaign",
           "tier": "Tier 2",
           "delay_reason": null
-        }
-      ],
-      "completion_pct": 0,
-      "start_date": "2026-07-14",
-      "end_date": ""
-    },
-    {
-      "id": "Unassigned Brand",
-      "name": "Unassigned Brand",
-      "total": 1,
-      "completed": 0,
-      "in_progress": 0,
-      "not_started": 1,
-      "overdue": 0,
-      "urgent": 0,
-      "buckets": [
-        "New Request"
-      ],
-      "tasks": [
+        },
         {
           "id": "DM-2",
           "name": "Healthy Fling - Sell",
@@ -63,8 +46,7 @@
           "priority": "Medium",
           "assignees": [
             "Kittiphoom Treesam (Pea)",
-            "Peter",
-            "Saran  Wisedcharakun (Mee)"
+            "Peter"
           ],
           "created": "2026-07-16",
           "due": "2026-07-25",
@@ -72,16 +54,16 @@
           "completed": "",
           "overdue": false,
           "labels": "",
-          "project": "Unassigned Brand",
-          "project_id": "Unassigned Brand",
+          "project": "GQ Everyday",
+          "project_id": "GQ Everyday",
           "turnaround_days": null,
-          "work_type": null,
-          "tier": null,
+          "work_type": "Renovation",
+          "tier": "N/A",
           "delay_reason": null
         }
       ],
       "completion_pct": 0,
-      "start_date": "2026-07-22",
+      "start_date": "2026-07-14",
       "end_date": ""
     },
     {
@@ -128,10 +110,10 @@
     {
       "id": "GQ Easy",
       "name": "GQ Easy",
-      "total": 2,
+      "total": 3,
       "completed": 0,
       "in_progress": 1,
-      "not_started": 1,
+      "not_started": 2,
       "overdue": 1,
       "urgent": 0,
       "buckets": [
@@ -184,6 +166,28 @@
           "work_type": "Always-on",
           "tier": "Tier 3",
           "delay_reason": "Waiting for Budget"
+        },
+        {
+          "id": "DM-8",
+          "name": "New Job for Cool tech",
+          "bucket": "New Request",
+          "status": "Not Started",
+          "priority": "Medium",
+          "assignees": [
+            "Kittiphoom Treesam (Pea)"
+          ],
+          "created": "2026-07-21",
+          "due": "2026-07-24",
+          "start": "2026-07-22",
+          "completed": "",
+          "overdue": false,
+          "labels": "",
+          "project": "GQ Easy",
+          "project_id": "GQ Easy",
+          "turnaround_days": null,
+          "work_type": "Campaign",
+          "tier": "N/A",
+          "delay_reason": null
         }
       ],
       "completion_pct": 0,
@@ -276,10 +280,10 @@
     }
   ],
   "overall": {
-    "total": 7,
+    "total": 8,
     "completed": 0,
     "in_progress": 2,
-    "not_started": 5,
+    "not_started": 6,
     "overdue": 2,
     "urgent": 2,
     "unassigned": 0,
@@ -289,10 +293,10 @@
   "workload": [
     {
       "name": "Kittiphoom Treesam (Pea)",
-      "total": 7,
+      "total": 8,
       "completed": 0,
       "in_progress": 2,
-      "not_started": 5
+      "not_started": 6
     },
     {
       "name": "Peter",
@@ -303,10 +307,10 @@
     },
     {
       "name": "Saran  Wisedcharakun (Mee)",
-      "total": 4,
+      "total": 3,
       "completed": 0,
       "in_progress": 0,
-      "not_started": 4
+      "not_started": 3
     }
   ],
   "turnaround": {
@@ -316,21 +320,15 @@
   "deliverable_types": [
     {
       "type": "Renovation",
-      "count": 3,
+      "count": 4,
       "completed": 0,
-      "n": 3
+      "n": 4
     },
     {
       "type": "Campaign",
-      "count": 1,
+      "count": 2,
       "completed": 0,
-      "n": 1
-    },
-    {
-      "type": "Other",
-      "count": 1,
-      "completed": 0,
-      "n": 1
+      "n": 2
     },
     {
       "type": "Commercial",
@@ -396,14 +394,23 @@
       "priority": "High"
     },
     {
+      "id": "DM-8",
+      "name": "New Job for Cool tech",
+      "project": "GQ Easy",
+      "due": "2026-07-24",
+      "assignees": [
+        "Kittiphoom Treesam (Pea)"
+      ],
+      "priority": "Medium"
+    },
+    {
       "id": "DM-2",
       "name": "Healthy Fling - Sell",
-      "project": "Unassigned Brand",
+      "project": "GQ Everyday",
       "due": "2026-07-25",
       "assignees": [
         "Kittiphoom Treesam (Pea)",
-        "Peter",
-        "Saran  Wisedcharakun (Mee)"
+        "Peter"
       ],
       "priority": "Medium"
     },
@@ -431,7 +438,7 @@
     }
   ],
   "exec_summary": {
-    "headline": "0 of 7 tasks complete (0%).",
+    "headline": "0 of 8 tasks complete (0%).",
     "overdue": 2,
     "urgent": 2,
     "in_progress": 2,
