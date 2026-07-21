@@ -45,7 +45,6 @@
           "status": "Not Started",
           "priority": "Medium",
           "assignees": [
-            "Kittiphoom Treesam (Pea)",
             "Peter"
           ],
           "created": "2026-07-16",
@@ -293,13 +292,15 @@
   "workload": [
     {
       "name": "Kittiphoom Treesam (Pea)",
-      "total": 8,
+      "team": "Unassigned team",
+      "total": 7,
       "completed": 0,
       "in_progress": 2,
-      "not_started": 6
+      "not_started": 5
     },
     {
       "name": "Peter",
+      "team": "Unassigned team",
       "total": 6,
       "completed": 0,
       "in_progress": 1,
@@ -307,10 +308,26 @@
     },
     {
       "name": "Saran  Wisedcharakun (Mee)",
+      "team": "Unassigned team",
       "total": 3,
       "completed": 0,
       "in_progress": 0,
       "not_started": 3
+    }
+  ],
+  "team_workload": [
+    {
+      "name": "Unassigned team",
+      "total": 8,
+      "completed": 0,
+      "in_progress": 2,
+      "not_started": 6,
+      "people": [
+        "Kittiphoom Treesam (Pea)",
+        "Peter",
+        "Saran  Wisedcharakun (Mee)"
+      ],
+      "headcount": 3
     }
   ],
   "turnaround": {
@@ -409,7 +426,6 @@
       "project": "GQ Everyday",
       "due": "2026-07-25",
       "assignees": [
-        "Kittiphoom Treesam (Pea)",
         "Peter"
       ],
       "priority": "Medium"
