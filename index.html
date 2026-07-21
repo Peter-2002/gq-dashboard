@@ -212,7 +212,7 @@ function prPill(p){const k=(p||'').toLowerCase();const cls=(k==='urgent'||k==='h
 function fmtd(s){if(!s)return '&mdash;';const d=new Date(s);return isNaN(d)?esc(s):d.toLocaleDateString('en-GB',{day:'2-digit',month:'short'});}
 function card(lbl,val,foot,cls){return `<div class="card ${cls||''}"><div class="lbl">${lbl}</div><div class="val">${val}</div>${foot?`<div class="foot">${foot}</div>`:''}</div>`;}
 
-fetch('data.json').then(r=>{if(!r.ok)throw new Error('data.json not found ('+r.status+')');return r.json();})
+fetch('data.json?t='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('data.json not found ('+r.status+')');return r.json();})
   .then(render)
   .catch(e=>{
     document.getElementById('loading').style.display='none';
