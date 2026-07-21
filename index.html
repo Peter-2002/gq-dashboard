@@ -84,6 +84,7 @@
       <button class="tab active" data-v="exec">Executive</button>
       <button class="tab" data-v="projects">By project</button>
       <button class="tab" data-v="people">Workload</button>
+      <button class="tab" data-v="teams">Teams</button>
       <button class="tab" data-v="turnaround">Turnaround</button>
       <button class="tab" data-v="deadlines">Deadlines</button>
     </div>
@@ -145,6 +146,26 @@
       </div>
     </div>
 
+    <!-- TEAMS -->
+    <div class="view" id="teams">
+      <div class="cards" id="team-cards"></div>
+      <div class="panel">
+        <h2>Workload by team</h2>
+        <div class="desc">Jobs each team is involved in. A job with two people from the same team counts once for that team. Team comes from the person→team sheet.</div>
+        <div class="legend">
+          <span><i class="dot" style="background:var(--green)"></i>Completed</span>
+          <span><i class="dot" style="background:var(--purple)"></i>In progress</span>
+          <span><i class="dot" style="background:var(--purpleL)"></i>Not started</span>
+        </div>
+        <div id="team-bars"></div>
+      </div>
+      <div class="panel">
+        <h2>Team detail</h2>
+        <div class="desc">Headcount and job load per team</div>
+        <table id="team-table"><thead><tr><th>Team</th><th>People</th><th>Total jobs</th><th>Done</th><th>In progress</th><th>Members</th></tr></thead><tbody></tbody></table>
+      </div>
+    </div>
+
     <!-- TURNAROUND -->
     <div class="view" id="turnaround">
       <div class="grid2">
@@ -191,7 +212,7 @@ function prPill(p){const k=(p||'').toLowerCase();const cls=(k==='urgent'||k==='h
 function fmtd(s){if(!s)return '&mdash;';const d=new Date(s);return isNaN(d)?esc(s):d.toLocaleDateString('en-GB',{day:'2-digit',month:'short'});}
 function card(lbl,val,foot,cls){return `<div class="card ${cls||''}"><div class="lbl">${lbl}</div><div class="val">${val}</div>${foot?`<div class="foot">${foot}</div>`:''}</div>`;}
 
-fetch('data.json?t=' + Date.now()).then(r=>{if(!r.ok)throw new Error('data.json not found ('+r.status+')');return r.json();})
+fetch('data.json').then(r=>{if(!r.ok)throw new Error('data.json not found ('+r.status+')');return r.json();})
   .then(render)
   .catch(e=>{
     document.getElementById('loading').style.display='none';
@@ -258,6 +279,24 @@ function render(D){
     return `<div class="barrow"><div class="nm">${esc(w.name)}</div>
       <div class="track"><div class="seg done" style="width:${width(w.completed)}"></div><div class="seg prog" style="width:${width(w.in_progress)}"></div><div class="seg todo" style="width:${width(w.not_started)}"></div></div>
       <div class="ct">${w.total}</div></div>`;}).join('') || '<div class="empty">No workload data.</div>';
+
+  // TEAMS
+  const teamWL=D.team_workload||[];
+  document.getElementById('team-cards').innerHTML=
+    card('Teams',teamWL.length,'active')+
+    card('Busiest team',teamWL[0]?esc(teamWL[0].name):'—',teamWL[0]?teamWL[0].total+' jobs':'')+
+    card('Total people',teamWL.reduce((s,g)=>s+(g.headcount||0),0),'across teams');
+  const maxT=Math.max(1,...teamWL.map(g=>g.total));
+  document.getElementById('team-bars').innerHTML=teamWL.map(g=>{
+    const width=s=>((s/maxT)*100).toFixed(1)+'%';
+    return `<div class="barrow"><div class="nm">${esc(g.name)}</div>
+      <div class="track"><div class="seg done" style="width:${width(g.completed)}"></div><div class="seg prog" style="width:${width(g.in_progress)}"></div><div class="seg todo" style="width:${width(g.not_started)}"></div></div>
+      <div class="ct">${g.total}</div></div>`;}).join('') || '<div class="empty">No team data — check the person→team sheet is published and names match Jira.</div>';
+  document.querySelector('#team-table tbody').innerHTML=teamWL.length?teamWL.map(g=>`<tr>
+    <td style="font-weight:500">${esc(g.name)}</td><td>${g.headcount||0}</td><td>${g.total}</td>
+    <td>${g.completed}</td><td>${g.in_progress}</td>
+    <td style="color:var(--ink2);font-size:11.5px">${people(g.people)}</td></tr>`).join('')
+    :'<tr><td colspan="6" class="empty">No team data yet.</td></tr>';
 
   // TURNAROUND
   const tw=(D.turnaround&&D.turnaround.by_work_type)||[];

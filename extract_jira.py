@@ -22,8 +22,13 @@ USAGE:
   4. It writes data.json next to the dashboard.
 """
 
-import os, sys, json, argparse, datetime, base64
+import os, sys, json, argparse, datetime, base64, csv, io
 import requests
+
+# ---- Google Sheet (person -> team) published as CSV ----
+# Publish your sheet: File > Share > Publish to web > Sheet1 > CSV, paste the URL here.
+# Columns expected: "Person" (exact Jira display name) and "Team".
+TEAM_SHEET_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRZB1Op4vrALNVGIB7seso6qNtlsgHISnV3-VCpvSyU9CPpvVgLjxwpu3v2GJWvkZcLvFhU5rE5noKv/pub?gid=0&single=true&output=csv"
 
 # ---- field NAMES as you created them in Jira (edit here if you renamed) ----
 FIELD_NAMES = {
@@ -44,6 +49,42 @@ FIELD_NAMES = {
 DONE_STATUSES = {"Delivered", "Closed", "Done"}
 INPROGRESS_HINT = {"In Progress", "Internal Review", "Revision", "Pending Feedback",
                    "Final QC", "In Planning", "Brief Review"}
+
+
+def load_team_map():
+    """Fetch person->team from the published Google Sheet CSV.
+    Returns {person_display_name: team}. Safe on failure (returns {})."""
+    if not TEAM_SHEET_CSV or "PASTE" in TEAM_SHEET_CSV:
+        print("[info] no team sheet configured; skipping team workload.", file=sys.stderr)
+        return {}
+    try:
+        r = requests.get(TEAM_SHEET_CSV, timeout=30)
+        r.raise_for_status()
+        text = r.content.decode("utf-8-sig")  # handles BOM
+        rows = list(csv.reader(io.StringIO(text)))
+        if not rows:
+            return {}
+        # find Person / Team columns from header (case-insensitive)
+        header = [h.strip().lower() for h in rows[0]]
+        try:
+            pi = header.index("person")
+            ti = header.index("team")
+        except ValueError:
+            print("[warn] team sheet needs 'Person' and 'Team' header columns.", file=sys.stderr)
+            return {}
+        mapping = {}
+        for row in rows[1:]:
+            if len(row) <= max(pi, ti):
+                continue
+            person = row[pi].strip()
+            team = row[ti].strip()
+            if person and team:
+                mapping[person] = team
+        print(f"[info] loaded {len(mapping)} person->team rows from sheet.", file=sys.stderr)
+        return mapping
+    except Exception as e:
+        print(f"[warn] could not read team sheet ({e}); skipping team workload.", file=sys.stderr)
+        return {}
 
 
 def auth_header():
@@ -139,6 +180,7 @@ def days_between(a, b):
 
 def build(base, project_key):
     ids = discover_fields(base)
+    team_map = load_team_map()
     missing = [k for k, v in ids.items() if v is None]
     if missing:
         print(f"[warn] these fields were not found by name (will be blank): {missing}", file=sys.stderr)
@@ -251,7 +293,8 @@ def build(base, project_key):
     wl = {}
     for t in tasks:
         for person in t["assignees"]:
-            w = wl.setdefault(person, {"name": person, "total": 0, "completed": 0,
+            w = wl.setdefault(person, {"name": person, "team": team_map.get(person, "Unassigned team"),
+                                       "total": 0, "completed": 0,
                                        "in_progress": 0, "not_started": 0})
             w["total"] += 1
             if t["status"] == "Completed":
@@ -261,6 +304,35 @@ def build(base, project_key):
             else:
                 w["not_started"] += 1
     workload = sorted(wl.values(), key=lambda x: -x["total"])
+
+    # ---- workload by team (derived from person->team map) ----
+    tm = {}
+    for t in tasks:
+        # unique teams involved in this task (so a task with 2 Graphic people counts once for Graphic)
+        teams_on_task = {}
+        for person in t["assignees"]:
+            team = team_map.get(person, "Unassigned team")
+            teams_on_task[team] = True
+        for team in teams_on_task:
+            g = tm.setdefault(team, {"name": team, "total": 0, "completed": 0,
+                                     "in_progress": 0, "not_started": 0, "people": set()})
+            g["total"] += 1
+            if t["status"] == "Completed":
+                g["completed"] += 1
+            elif t["status"] == "In Progress":
+                g["in_progress"] += 1
+            else:
+                g["not_started"] += 1
+        for person in t["assignees"]:
+            team = team_map.get(person, "Unassigned team")
+            tm[team]["people"].add(person)
+    team_workload = []
+    for g in tm.values():
+        g["people"] = sorted(g["people"])
+        g["headcount"] = len(g["people"])
+        team_workload.append(g)
+    team_workload.sort(key=lambda x: -x["total"])
+
 
     # ---- turnaround by work type and by project (avg days, completed only) ----
     def avg_turn(group_key):
@@ -323,6 +395,7 @@ def build(base, project_key):
         "projects": proj_list,
         "overall": overall,
         "workload": workload,
+        "team_workload": team_workload,
         "turnaround": turnaround,
         "deliverable_types": deliverable_types,
         "monthly_completed": monthly_completed,
