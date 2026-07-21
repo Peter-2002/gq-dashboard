@@ -1,0 +1,44 @@
+name: Update dashboard data from Jira
+
+# When this runs:
+on:
+  schedule:
+    - cron: "0 * * * *"      # every hour, on the hour (UTC)
+  workflow_dispatch: {}        # also lets you run it manually from the Actions tab
+
+permissions:
+  contents: write              # needed so the job can commit data.json back
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Pull latest data from Jira
+        env:
+          JIRA_BASE:  ${{ secrets.JIRA_BASE }}
+          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+          JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
+        run: python extract_jira.py --project ${{ vars.JIRA_PROJECT || 'DM' }} --out data.json
+
+      - name: Commit updated data.json (only if it changed)
+        run: |
+          git config user.name  "dashboard-bot"
+          git config user.email "dashboard-bot@users.noreply.github.com"
+          git add data.json
+          if git diff --staged --quiet; then
+            echo "No changes in data.json — nothing to commit."
+          else
+            git commit -m "chore: refresh Jira data ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+            git push
+          fi

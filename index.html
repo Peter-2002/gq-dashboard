@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GQ Creative — Executive Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  :root{
+    --ink:#1b1b1b;--ink2:#5c5b56;--ink3:#8f8e87;
+    --line:#e7e5dd;--line2:#d5d3c9;--page:#f6f5f0;--surface:#fff;--tint:#f0eee7;
+    --navy:#242052;--navy2:#3a3486;--purple:#544cb4;--purpleL:#b7b2e8;
+    --red:#cc3b3b;--amber:#e39a12;--green:#12a012;--coral:#d6602f;
+    --r:11px;--font:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans Thai",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font);background:var(--page);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1220px;margin:0 auto;padding:22px}
+  header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .brand{display:flex;align-items:center;gap:13px}
+  .logo{width:40px;height:40px;border-radius:10px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px}
+  h1{font-size:20px;font-weight:600;letter-spacing:-.3px}
+  .sub{font-size:12.5px;color:var(--ink3)}
+  .asof{font-size:12px;color:var(--ink3);background:var(--tint);padding:6px 12px;border-radius:20px}
+  .tabs{display:flex;gap:3px;margin:18px 0 20px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .tab{padding:9px 15px;font-size:13.5px;font-weight:500;color:var(--ink2);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-1px;font-family:inherit}
+  .tab:hover{color:var(--ink)}
+  .tab.active{color:var(--navy2);border-bottom-color:var(--navy2)}
+  .view{display:none}.view.active{display:block}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:12px;margin-bottom:18px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:15px 16px}
+  .card .lbl{font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.6px;font-weight:500}
+  .card .val{font-size:28px;font-weight:600;margin-top:4px;letter-spacing:-.5px}
+  .card .foot{font-size:11.5px;color:var(--ink3);margin-top:2px}
+  .card.alert .val{color:var(--red)}.card.warn .val{color:var(--coral)}.card.good .val{color:var(--green)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
+  @media(max-width:860px){.grid2,.grid3{grid-template-columns:1fr}}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:17px 19px}
+  .panel h2{font-size:14px;font-weight:600;margin-bottom:2px;letter-spacing:-.1px}
+  .panel .desc{font-size:12px;color:var(--ink3);margin-bottom:14px}
+  .chartbox{position:relative;width:100%}
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th{text-align:left;font-weight:500;color:var(--ink3);font-size:11px;text-transform:uppercase;letter-spacing:.4px;padding:7px 8px;border-bottom:1px solid var(--line2)}
+  td{padding:8px;border-bottom:1px solid var(--line);vertical-align:middle}
+  tr:last-child td{border-bottom:none}
+  .jid{font-variant-numeric:tabular-nums;color:var(--navy2);font-weight:500;white-space:nowrap}
+  .pill{display:inline-block;padding:2px 8px;border-radius:11px;font-size:11px;font-weight:500}
+  .pill.red{background:#fcebeb;color:#a32d2d}.pill.amber{background:#faeeda;color:#864f0a}
+  .pill.high{background:#f3e9ff;color:#3a3486}.pill.urgent{background:#fcebeb;color:#a32d2d}
+  .barrow{display:flex;align-items:center;gap:10px;margin-bottom:9px;font-size:12.5px}
+  .barrow .nm{width:110px;flex-shrink:0;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .track{flex:1;height:22px;background:var(--tint);border-radius:5px;position:relative;overflow:hidden;display:flex}
+  .seg{height:100%}
+  .seg.done{background:var(--green)}.seg.prog{background:var(--purple)}.seg.todo{background:var(--purpleL)}
+  .barrow .ct{width:52px;flex-shrink:0;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink2);font-size:11.5px}
+  .legend{display:flex;gap:14px;font-size:11.5px;color:var(--ink2);margin-bottom:12px}
+  .legend span{display:flex;align-items:center;gap:5px}
+  .dot{width:9px;height:9px;border-radius:2px;display:inline-block}
+  .empty{color:var(--ink3);font-size:12.5px;padding:10px 0}
+  .note{font-size:11.5px;color:var(--ink3);margin-top:6px}
+  #loading{padding:60px;text-align:center;color:var(--ink3)}
+  #err{padding:30px;background:#fcebeb;border:1px solid #f0c0c0;border-radius:var(--r);color:#a32d2d;font-size:13px;display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <div class="logo">GQ</div>
+      <div>
+        <h1>Creative &amp; NPD — Executive Dashboard</h1>
+        <div class="sub">Live from Jira &middot; Marketing operations</div>
+      </div>
+    </div>
+    <div class="asof" id="asof">Loading…</div>
+  </header>
+
+  <div id="err"></div>
+  <div id="loading">Loading dashboard data…</div>
+
+  <div id="app" style="display:none">
+    <div class="tabs">
+      <button class="tab active" data-v="exec">Executive</button>
+      <button class="tab" data-v="projects">By project</button>
+      <button class="tab" data-v="people">Workload</button>
+      <button class="tab" data-v="turnaround">Turnaround</button>
+      <button class="tab" data-v="deadlines">Deadlines</button>
+    </div>
+
+    <!-- EXECUTIVE -->
+    <div class="view active" id="exec">
+      <div class="cards" id="exec-cards"></div>
+      <div class="grid2">
+        <div class="panel">
+          <h2>Overall status mix</h2>
+          <div class="desc">Every tracked task by state</div>
+          <div class="chartbox" style="height:260px"><canvas id="statusMix"></canvas></div>
+        </div>
+        <div class="panel">
+          <h2>Monthly delivery velocity</h2>
+          <div class="desc">Tasks completed per month</div>
+          <div class="chartbox" style="height:260px"><canvas id="velocity"></canvas></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Deliverables by type of work</h2>
+        <div class="desc">Volume and completion by work type</div>
+        <div class="chartbox" style="height:300px"><canvas id="deliverables"></canvas></div>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="view" id="projects">
+      <div class="panel" style="margin-bottom:16px">
+        <h2>Status by project (brand)</h2>
+        <div class="desc">Completion breakdown per brand</div>
+        <div class="legend">
+          <span><i class="dot" style="background:var(--green)"></i>Completed</span>
+          <span><i class="dot" style="background:var(--purple)"></i>In progress</span>
+          <span><i class="dot" style="background:var(--purpleL)"></i>Not started</span>
+        </div>
+        <div id="proj-bars"></div>
+      </div>
+      <div class="panel">
+        <h2>Project standing</h2>
+        <div class="desc">Completion %, overdue and urgent counts by brand</div>
+        <table id="proj-table"><thead><tr><th>Brand</th><th>Tasks</th><th>Done</th><th>Completion</th><th>Overdue</th><th>Urgent</th></tr></thead><tbody></tbody></table>
+      </div>
+    </div>
+
+    <!-- WORKLOAD -->
+    <div class="view" id="people">
+      <div class="cards" id="wl-cards"></div>
+      <div class="panel">
+        <h2>Workload by person</h2>
+        <div class="desc">Tasks per person (assignee + co-owner + reviewer combined). Segments show state.</div>
+        <div class="legend">
+          <span><i class="dot" style="background:var(--green)"></i>Completed</span>
+          <span><i class="dot" style="background:var(--purple)"></i>In progress</span>
+          <span><i class="dot" style="background:var(--purpleL)"></i>Not started</span>
+        </div>
+        <div id="wl-bars"></div>
+        <div class="note">Counts everyone involved in a task, not just the lead assignee.</div>
+      </div>
+    </div>
+
+    <!-- TURNAROUND -->
+    <div class="view" id="turnaround">
+      <div class="grid2">
+        <div class="panel">
+          <h2>Avg turnaround by work type</h2>
+          <div class="desc">Days from start to completion (completed tasks)</div>
+          <div class="chartbox" style="height:300px"><canvas id="turnWork"></canvas></div>
+        </div>
+        <div class="panel">
+          <h2>Avg turnaround by project</h2>
+          <div class="desc">Days from start to completion, per brand</div>
+          <div class="chartbox" style="height:300px"><canvas id="turnProj"></canvas></div>
+        </div>
+      </div>
+      <div class="note" style="padding:0 4px">Only completed tasks with start and completion dates are included. Low n = few completed tasks so far.</div>
+    </div>
+
+    <!-- DEADLINES -->
+    <div class="view" id="deadlines">
+      <div class="panel" style="margin-bottom:16px">
+        <h2>Overdue tasks</h2>
+        <div class="desc">Past due date and not yet complete</div>
+        <table id="overdue-table"><thead><tr><th>Task</th><th>Brand</th><th>Due</th><th>People</th><th>Priority</th></tr></thead><tbody></tbody></table>
+      </div>
+      <div class="panel">
+        <h2>Upcoming deadlines</h2>
+        <div class="desc">Next open tasks due, soonest first</div>
+        <table id="upcoming-table"><thead><tr><th>Task</th><th>Brand</th><th>Due</th><th>People</th><th>Priority</th></tr></thead><tbody></tbody></table>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:6px">Live data pulled from Jira. Refresh the page after the pipeline runs to see the latest.</div>
+  </div>
+</div>
+
+<script>
+const C={navy:'#242052',navy2:'#3a3486',purple:'#544cb4',purpleL:'#b7b2e8',red:'#cc3b3b',amber:'#e39a12',green:'#12a012',coral:'#d6602f',ink3:'#8f8e87'};
+const base={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#242052',padding:10,cornerRadius:6}}};
+const money=n=>n;
+
+function esc(s){return (s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+function people(arr){return (arr&&arr.length)?arr.map(esc).join(', '):'&mdash;';}
+function prPill(p){const k=(p||'').toLowerCase();const cls=(k==='urgent'||k==='highest')?'urgent':(k==='high'?'high':'');return cls?`<span class="pill ${cls}">${esc(p)}</span>`:esc(p||'&mdash;');}
+function fmtd(s){if(!s)return '&mdash;';const d=new Date(s);return isNaN(d)?esc(s):d.toLocaleDateString('en-GB',{day:'2-digit',month:'short'});}
+function card(lbl,val,foot,cls){return `<div class="card ${cls||''}"><div class="lbl">${lbl}</div><div class="val">${val}</div>${foot?`<div class="foot">${foot}</div>`:''}</div>`;}
+
+fetch('data.json?t=' + Date.now()).then(r=>{if(!r.ok)throw new Error('data.json not found ('+r.status+')');return r.json();})
+  .then(render)
+  .catch(e=>{
+    document.getElementById('loading').style.display='none';
+    const el=document.getElementById('err');el.style.display='block';
+    el.innerHTML='Could not load <b>data.json</b>: '+esc(e.message)+'<br>Make sure data.json sits next to this page (run the pipeline, then host both together).';
+  });
+
+function render(D){
+  document.getElementById('loading').style.display='none';
+  document.getElementById('app').style.display='block';
+  const o=D.overall||{};
+  document.getElementById('asof').textContent='Data as of '+(D.generated||'—')+' · '+(o.total||0)+' tasks';
+
+  // EXEC cards
+  document.getElementById('exec-cards').innerHTML=
+    card('Total tasks',o.total||0,'all tracked')+
+    card('Completed',o.completed||0,(o.completion_pct||0)+'% done','good')+
+    card('In progress',o.in_progress||0,'active')+
+    card('Overdue',o.overdue||0,'past due','alert')+
+    card('Urgent',o.urgent||0,'high priority','warn')+
+    card('Avg turnaround',(o.avg_turnaround_days||0)+'d','start→done');
+
+  // status mix donut
+  new Chart(statusMix,{type:'doughnut',data:{labels:['Completed','In progress','Not started'],
+    datasets:[{data:[o.completed||0,o.in_progress||0,o.not_started||0],backgroundColor:[C.green,C.purple,C.purpleL],borderWidth:0}]},
+    options:{...base,cutout:'62%',plugins:{...base.plugins,legend:{display:true,position:'bottom',labels:{boxWidth:10,font:{size:11.5},color:C.ink3}}}}});
+
+  // velocity
+  const mc=D.monthly_completed||[];
+  new Chart(velocity,{type:'bar',data:{labels:mc.map(m=>m.month),datasets:[{data:mc.map(m=>m.count),backgroundColor:C.navy2,borderRadius:4,maxBarThickness:38}]},
+    options:{...base,scales:{x:{grid:{display:false},ticks:{color:C.ink3}},y:{beginAtZero:true,grid:{color:'#eeece5'},ticks:{color:C.ink3,precision:0}}}}});
+
+  // deliverables (stacked done vs remaining)
+  const dt=D.deliverable_types||[];
+  new Chart(deliverables,{type:'bar',data:{labels:dt.map(x=>x.type),datasets:[
+    {label:'Completed',data:dt.map(x=>x.completed),backgroundColor:C.green,borderRadius:3},
+    {label:'Remaining',data:dt.map(x=>x.count-x.completed),backgroundColor:C.purpleL,borderRadius:3}]},
+    options:{...base,plugins:{...base.plugins,legend:{display:true,position:'bottom',labels:{boxWidth:10,font:{size:11.5},color:C.ink3}}},
+      scales:{x:{stacked:true,grid:{display:false},ticks:{color:C.ink3}},y:{stacked:true,beginAtZero:true,grid:{color:'#eeece5'},ticks:{color:C.ink3,precision:0}}}}});
+
+  // PROJECTS
+  const pr=D.projects||[];
+  const maxP=Math.max(1,...pr.map(p=>p.total));
+  document.getElementById('proj-bars').innerHTML=pr.map(p=>{
+    const w=s=>((s/maxP)*100).toFixed(1)+'%';
+    return `<div class="barrow"><div class="nm">${esc(p.name)}</div>
+      <div class="track"><div class="seg done" style="width:${w(p.completed)}"></div><div class="seg prog" style="width:${w(p.in_progress)}"></div><div class="seg todo" style="width:${w(p.not_started)}"></div></div>
+      <div class="ct">${p.completion_pct}%</div></div>`;}).join('') || '<div class="empty">No project data.</div>';
+  document.querySelector('#proj-table tbody').innerHTML=pr.map(p=>`<tr>
+    <td style="font-weight:500">${esc(p.name)}</td><td>${p.total}</td><td>${p.completed}</td>
+    <td>${p.completion_pct}%</td>
+    <td>${p.overdue?`<span class="pill red">${p.overdue}</span>`:'0'}</td>
+    <td>${p.urgent?`<span class="pill amber">${p.urgent}</span>`:'0'}</td></tr>`).join('');
+
+  // WORKLOAD
+  const wl=D.workload||[];
+  document.getElementById('wl-cards').innerHTML=
+    card('People',wl.length,'with tasks')+
+    card('Total assignments',wl.reduce((s,w)=>s+w.total,0),'incl. co-owner/reviewer')+
+    card('Busiest',wl[0]?esc(wl[0].name):'—',wl[0]?wl[0].total+' tasks':'');
+  const maxW=Math.max(1,...wl.map(w=>w.total));
+  document.getElementById('wl-bars').innerHTML=wl.map(w=>{
+    const width=s=>((s/maxW)*100).toFixed(1)+'%';
+    return `<div class="barrow"><div class="nm">${esc(w.name)}</div>
+      <div class="track"><div class="seg done" style="width:${width(w.completed)}"></div><div class="seg prog" style="width:${width(w.in_progress)}"></div><div class="seg todo" style="width:${width(w.not_started)}"></div></div>
+      <div class="ct">${w.total}</div></div>`;}).join('') || '<div class="empty">No workload data.</div>';
+
+  // TURNAROUND
+  const tw=(D.turnaround&&D.turnaround.by_work_type)||[];
+  const tp=(D.turnaround&&D.turnaround.by_project)||[];
+  const mkTurn=(cvs,rows)=>{
+    if(!rows.length){cvs.parentElement.innerHTML='<div class="empty">No completed tasks with dates yet — turnaround needs finished jobs.</div>';return;}
+    const opts={indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#242052',padding:10,cornerRadius:6,callbacks:{label:c=>c.raw+' days avg'}}},scales:{x:{beginAtZero:true,grid:{color:'#eeece5'},ticks:{color:C.ink3,callback:v=>v+'d'}},y:{grid:{display:false},ticks:{color:C.ink3,font:{size:11}}}}};
+    new Chart(cvs,{type:'bar',data:{labels:rows.map(x=>x.name+' (n='+x.n+')'),datasets:[{data:rows.map(x=>x.avg),backgroundColor:rows.map(x=>x.avg>=20?C.red:x.avg>=12?C.amber:C.purple),borderRadius:4,maxBarThickness:26}]},options:opts});
+  };
+  mkTurn(turnWork,tw); mkTurn(turnProj,tp);
+
+  // DEADLINES
+  const od=D.overdue||[];
+  document.querySelector('#overdue-table tbody').innerHTML=od.length?od.map(t=>`<tr>
+    <td class="jid">${esc(t.id)}</td><td>${esc(t.project)}</td><td>${fmtd(t.due)}</td><td>${people(t.assignees)}</td><td>${prPill(t.priority)}</td></tr>`).join('')
+    :'<tr><td colspan="5" class="empty">Nothing overdue. 🎉</td></tr>';
+  const up=D.upcoming||[];
+  document.querySelector('#upcoming-table tbody').innerHTML=up.length?up.map(t=>`<tr>
+    <td class="jid">${esc(t.id)}</td><td>${esc(t.project)}</td><td>${fmtd(t.due)}</td><td>${people(t.assignees)}</td><td>${prPill(t.priority)}</td></tr>`).join('')
+    :'<tr><td colspan="5" class="empty">No upcoming deadlines.</td></tr>';
+
+  // tabs
+  document.querySelector('.tabs').addEventListener('click',e=>{
+    if(!e.target.dataset.v)return;
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    e.target.classList.add('active');
+    document.getElementById(e.target.dataset.v).classList.add('active');
+  });
+}
+</script>
+</body>
+</html>

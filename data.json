@@ -1,0 +1,440 @@
+{
+  "generated": "2026-07-21",
+  "projects": [
+    {
+      "id": "GQ Everyday",
+      "name": "GQ Everyday",
+      "total": 1,
+      "completed": 0,
+      "in_progress": 1,
+      "not_started": 0,
+      "overdue": 1,
+      "urgent": 0,
+      "buckets": [
+        "In Planning"
+      ],
+      "tasks": [
+        {
+          "id": "DM-1",
+          "name": "Healthy Fling - KV Shoot",
+          "bucket": "In Planning",
+          "status": "In Progress",
+          "priority": "Medium",
+          "assignees": [
+            "Kittiphoom Treesam (Pea)",
+            "Peter"
+          ],
+          "created": "2026-07-16",
+          "due": "2026-07-17",
+          "start": "2026-07-14",
+          "completed": "",
+          "overdue": true,
+          "labels": "",
+          "project": "GQ Everyday",
+          "project_id": "GQ Everyday",
+          "turnaround_days": null,
+          "work_type": "Campaign",
+          "tier": "Tier 2",
+          "delay_reason": null
+        }
+      ],
+      "completion_pct": 0,
+      "start_date": "2026-07-14",
+      "end_date": ""
+    },
+    {
+      "id": "Unassigned Brand",
+      "name": "Unassigned Brand",
+      "total": 1,
+      "completed": 0,
+      "in_progress": 0,
+      "not_started": 1,
+      "overdue": 0,
+      "urgent": 0,
+      "buckets": [
+        "New Request"
+      ],
+      "tasks": [
+        {
+          "id": "DM-2",
+          "name": "Healthy Fling - Sell",
+          "bucket": "New Request",
+          "status": "Not Started",
+          "priority": "Medium",
+          "assignees": [
+            "Kittiphoom Treesam (Pea)",
+            "Peter",
+            "Saran  Wisedcharakun (Mee)"
+          ],
+          "created": "2026-07-16",
+          "due": "2026-07-25",
+          "start": "2026-07-22",
+          "completed": "",
+          "overdue": false,
+          "labels": "",
+          "project": "Unassigned Brand",
+          "project_id": "Unassigned Brand",
+          "turnaround_days": null,
+          "work_type": null,
+          "tier": null,
+          "delay_reason": null
+        }
+      ],
+      "completion_pct": 0,
+      "start_date": "2026-07-22",
+      "end_date": ""
+    },
+    {
+      "id": "GQ Hero",
+      "name": "GQ Hero",
+      "total": 1,
+      "completed": 0,
+      "in_progress": 0,
+      "not_started": 1,
+      "overdue": 0,
+      "urgent": 1,
+      "buckets": [
+        "New Request"
+      ],
+      "tasks": [
+        {
+          "id": "DM-3",
+          "name": "HEalthy Fling 2",
+          "bucket": "New Request",
+          "status": "Not Started",
+          "priority": "High",
+          "assignees": [
+            "Kittiphoom Treesam (Pea)",
+            "Peter"
+          ],
+          "created": "2026-07-20",
+          "due": "2026-07-23",
+          "start": "2026-07-21",
+          "completed": "",
+          "overdue": false,
+          "labels": "",
+          "project": "GQ Hero",
+          "project_id": "GQ Hero",
+          "turnaround_days": null,
+          "work_type": "Commercial",
+          "tier": "Tier 3",
+          "delay_reason": "Waiting for Approval"
+        }
+      ],
+      "completion_pct": 0,
+      "start_date": "2026-07-21",
+      "end_date": ""
+    },
+    {
+      "id": "GQ Easy",
+      "name": "GQ Easy",
+      "total": 2,
+      "completed": 0,
+      "in_progress": 1,
+      "not_started": 1,
+      "overdue": 1,
+      "urgent": 0,
+      "buckets": [
+        "Brief Review",
+        "New Request"
+      ],
+      "tasks": [
+        {
+          "id": "DM-4",
+          "name": "Luem Hung 3",
+          "bucket": "Brief Review",
+          "status": "In Progress",
+          "priority": "Lowest",
+          "assignees": [
+            "Kittiphoom Treesam (Pea)"
+          ],
+          "created": "2026-07-20",
+          "due": "2026-07-28",
+          "start": "2026-07-27",
+          "completed": "",
+          "overdue": false,
+          "labels": "",
+          "project": "GQ Easy",
+          "project_id": "GQ Easy",
+          "turnaround_days": null,
+          "work_type": "Renovation",
+          "tier": "Tier 1",
+          "delay_reason": null
+        },
+        {
+          "id": "DM-6",
+          "name": "HEalthy Fling 5",
+          "bucket": "New Request",
+          "status": "Not Started",
+          "priority": "Medium",
+          "assignees": [
+            "Peter",
+            "Saran  Wisedcharakun (Mee)",
+            "Kittiphoom Treesam (Pea)"
+          ],
+          "created": "2026-07-20",
+          "due": "2026-07-17",
+          "start": "2026-07-13",
+          "completed": "",
+          "overdue": true,
+          "labels": "",
+          "project": "GQ Easy",
+          "project_id": "GQ Easy",
+          "turnaround_days": null,
+          "work_type": "Always-on",
+          "tier": "Tier 3",
+          "delay_reason": "Waiting for Budget"
+        }
+      ],
+      "completion_pct": 0,
+      "start_date": "2026-07-13",
+      "end_date": ""
+    },
+    {
+      "id": "GQ Other",
+      "name": "GQ Other",
+      "total": 1,
+      "completed": 0,
+      "in_progress": 0,
+      "not_started": 1,
+      "overdue": 0,
+      "urgent": 1,
+      "buckets": [
+        "New Request"
+      ],
+      "tasks": [
+        {
+          "id": "DM-5",
+          "name": "Luem Hung 4",
+          "bucket": "New Request",
+          "status": "Not Started",
+          "priority": "High",
+          "assignees": [
+            "Saran  Wisedcharakun (Mee)",
+            "Kittiphoom Treesam (Pea)",
+            "Peter"
+          ],
+          "created": "2026-07-20",
+          "due": "2026-07-24",
+          "start": "2026-07-22",
+          "completed": "",
+          "overdue": false,
+          "labels": "",
+          "project": "GQ Other",
+          "project_id": "GQ Other",
+          "turnaround_days": null,
+          "work_type": "Renovation",
+          "tier": "Tier 3",
+          "delay_reason": null
+        }
+      ],
+      "completion_pct": 0,
+      "start_date": "2026-07-22",
+      "end_date": ""
+    },
+    {
+      "id": "GQ Occ",
+      "name": "GQ Occ",
+      "total": 1,
+      "completed": 0,
+      "in_progress": 0,
+      "not_started": 1,
+      "overdue": 0,
+      "urgent": 0,
+      "buckets": [
+        "New Request"
+      ],
+      "tasks": [
+        {
+          "id": "DM-7",
+          "name": "Luem Hung 5",
+          "bucket": "New Request",
+          "status": "Not Started",
+          "priority": "Medium",
+          "assignees": [
+            "Saran  Wisedcharakun (Mee)",
+            "Peter",
+            "Kittiphoom Treesam (Pea)"
+          ],
+          "created": "2026-07-21",
+          "due": "2026-08-06",
+          "start": "2026-08-03",
+          "completed": "",
+          "overdue": false,
+          "labels": "",
+          "project": "GQ Occ",
+          "project_id": "GQ Occ",
+          "turnaround_days": null,
+          "work_type": "Renovation",
+          "tier": "Tier 3",
+          "delay_reason": null
+        }
+      ],
+      "completion_pct": 0,
+      "start_date": "2026-08-03",
+      "end_date": ""
+    }
+  ],
+  "overall": {
+    "total": 7,
+    "completed": 0,
+    "in_progress": 2,
+    "not_started": 5,
+    "overdue": 2,
+    "urgent": 2,
+    "unassigned": 0,
+    "completion_pct": 0,
+    "avg_turnaround_days": 0.0
+  },
+  "workload": [
+    {
+      "name": "Kittiphoom Treesam (Pea)",
+      "total": 7,
+      "completed": 0,
+      "in_progress": 2,
+      "not_started": 5
+    },
+    {
+      "name": "Peter",
+      "total": 6,
+      "completed": 0,
+      "in_progress": 1,
+      "not_started": 5
+    },
+    {
+      "name": "Saran  Wisedcharakun (Mee)",
+      "total": 4,
+      "completed": 0,
+      "in_progress": 0,
+      "not_started": 4
+    }
+  ],
+  "turnaround": {
+    "by_work_type": [],
+    "by_project": []
+  },
+  "deliverable_types": [
+    {
+      "type": "Renovation",
+      "count": 3,
+      "completed": 0,
+      "n": 3
+    },
+    {
+      "type": "Campaign",
+      "count": 1,
+      "completed": 0,
+      "n": 1
+    },
+    {
+      "type": "Other",
+      "count": 1,
+      "completed": 0,
+      "n": 1
+    },
+    {
+      "type": "Commercial",
+      "count": 1,
+      "completed": 0,
+      "n": 1
+    },
+    {
+      "type": "Always-on",
+      "count": 1,
+      "completed": 0,
+      "n": 1
+    }
+  ],
+  "monthly_completed": [],
+  "overdue": [
+    {
+      "id": "DM-1",
+      "name": "Healthy Fling - KV Shoot",
+      "project": "GQ Everyday",
+      "due": "2026-07-17",
+      "assignees": [
+        "Kittiphoom Treesam (Pea)",
+        "Peter"
+      ],
+      "priority": "Medium"
+    },
+    {
+      "id": "DM-6",
+      "name": "HEalthy Fling 5",
+      "project": "GQ Easy",
+      "due": "2026-07-17",
+      "assignees": [
+        "Peter",
+        "Saran  Wisedcharakun (Mee)",
+        "Kittiphoom Treesam (Pea)"
+      ],
+      "priority": "Medium"
+    }
+  ],
+  "upcoming": [
+    {
+      "id": "DM-3",
+      "name": "HEalthy Fling 2",
+      "project": "GQ Hero",
+      "due": "2026-07-23",
+      "assignees": [
+        "Kittiphoom Treesam (Pea)",
+        "Peter"
+      ],
+      "priority": "High"
+    },
+    {
+      "id": "DM-5",
+      "name": "Luem Hung 4",
+      "project": "GQ Other",
+      "due": "2026-07-24",
+      "assignees": [
+        "Saran  Wisedcharakun (Mee)",
+        "Kittiphoom Treesam (Pea)",
+        "Peter"
+      ],
+      "priority": "High"
+    },
+    {
+      "id": "DM-2",
+      "name": "Healthy Fling - Sell",
+      "project": "Unassigned Brand",
+      "due": "2026-07-25",
+      "assignees": [
+        "Kittiphoom Treesam (Pea)",
+        "Peter",
+        "Saran  Wisedcharakun (Mee)"
+      ],
+      "priority": "Medium"
+    },
+    {
+      "id": "DM-4",
+      "name": "Luem Hung 3",
+      "project": "GQ Easy",
+      "due": "2026-07-28",
+      "assignees": [
+        "Kittiphoom Treesam (Pea)"
+      ],
+      "priority": "Lowest"
+    },
+    {
+      "id": "DM-7",
+      "name": "Luem Hung 5",
+      "project": "GQ Occ",
+      "due": "2026-08-06",
+      "assignees": [
+        "Saran  Wisedcharakun (Mee)",
+        "Peter",
+        "Kittiphoom Treesam (Pea)"
+      ],
+      "priority": "Medium"
+    }
+  ],
+  "exec_summary": {
+    "headline": "0 of 7 tasks complete (0%).",
+    "overdue": 2,
+    "urgent": 2,
+    "in_progress": 2,
+    "avg_turnaround_days": 0.0
+  }
+}
