@@ -128,10 +128,10 @@
     {
       "id": "GQ Easy",
       "name": "GQ Easy",
-      "total": 2,
+      "total": 3,
       "completed": 0,
       "in_progress": 1,
-      "not_started": 1,
+      "not_started": 2,
       "overdue": 1,
       "urgent": 0,
       "buckets": [
@@ -184,6 +184,28 @@
           "work_type": "Always-on",
           "tier": "Tier 3",
           "delay_reason": "Waiting for Budget"
+        },
+        {
+          "id": "DM-8",
+          "name": "New Job for Cool tech",
+          "bucket": "New Request",
+          "status": "Not Started",
+          "priority": "Medium",
+          "assignees": [
+            "Kittiphoom Treesam (Pea)"
+          ],
+          "created": "2026-07-21",
+          "due": "2026-07-24",
+          "start": "2026-07-22",
+          "completed": "",
+          "overdue": false,
+          "labels": "",
+          "project": "GQ Easy",
+          "project_id": "GQ Easy",
+          "turnaround_days": null,
+          "work_type": "Campaign",
+          "tier": "N/A",
+          "delay_reason": null
         }
       ],
       "completion_pct": 0,
@@ -276,10 +298,10 @@
     }
   ],
   "overall": {
-    "total": 7,
+    "total": 8,
     "completed": 0,
     "in_progress": 2,
-    "not_started": 5,
+    "not_started": 6,
     "overdue": 2,
     "urgent": 2,
     "unassigned": 0,
@@ -289,10 +311,10 @@
   "workload": [
     {
       "name": "Kittiphoom Treesam (Pea)",
-      "total": 7,
+      "total": 8,
       "completed": 0,
       "in_progress": 2,
-      "not_started": 5
+      "not_started": 6
     },
     {
       "name": "Peter",
@@ -322,9 +344,9 @@
     },
     {
       "type": "Campaign",
-      "count": 1,
+      "count": 2,
       "completed": 0,
-      "n": 1
+      "n": 2
     },
     {
       "type": "Other",
@@ -396,6 +418,16 @@
       "priority": "High"
     },
     {
+      "id": "DM-8",
+      "name": "New Job for Cool tech",
+      "project": "GQ Easy",
+      "due": "2026-07-24",
+      "assignees": [
+        "Kittiphoom Treesam (Pea)"
+      ],
+      "priority": "Medium"
+    },
+    {
       "id": "DM-2",
       "name": "Healthy Fling - Sell",
       "project": "Unassigned Brand",
@@ -431,7 +463,7 @@
     }
   ],
   "exec_summary": {
-    "headline": "0 of 7 tasks complete (0%).",
+    "headline": "0 of 8 tasks complete (0%).",
     "overdue": 2,
     "urgent": 2,
     "in_progress": 2,
