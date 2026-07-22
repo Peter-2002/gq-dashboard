@@ -124,7 +124,7 @@
           "turnaround_days": null,
           "work_type": "Campaign",
           "tier": "N/A",
-          "delay_reason": null
+          "delay_reason": "Waiting for Brief"
         }
       ],
       "completion_pct": 0,
