@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-28",
+  "generated": "2026-07-29",
   "projects": [
     {
       "id": "GQ Everyday",
@@ -49,7 +49,7 @@
       "completed": 0,
       "in_progress": 1,
       "not_started": 2,
-      "overdue": 2,
+      "overdue": 3,
       "urgent": 0,
       "buckets": [
         "Brief Review",
@@ -69,7 +69,7 @@
           "due": "2026-07-28",
           "start": "2026-07-27",
           "completed": "",
-          "overdue": false,
+          "overdue": true,
           "labels": "",
           "project": "GQ Easy",
           "project_id": "GQ Easy",
@@ -179,7 +179,7 @@
     "completed": 0,
     "in_progress": 2,
     "not_started": 3,
-    "overdue": 3,
+    "overdue": 4,
     "urgent": 0,
     "unassigned": 0,
     "completion_pct": 0,
@@ -188,7 +188,7 @@
   "workload": [
     {
       "name": "Kittiphoom Treesam (Pea)",
-      "team": "Planner",
+      "team": "Unassigned team",
       "total": 5,
       "completed": 0,
       "in_progress": 2,
@@ -196,7 +196,7 @@
     },
     {
       "name": "Peter",
-      "team": "Graphic",
+      "team": "Unassigned team",
       "total": 3,
       "completed": 0,
       "in_progress": 1,
@@ -221,38 +221,18 @@
   ],
   "team_workload": [
     {
-      "name": "Planner",
+      "name": "Unassigned team",
       "total": 5,
       "completed": 0,
       "in_progress": 2,
       "not_started": 3,
       "people": [
-        "Kittiphoom Treesam (Pea)"
-      ],
-      "headcount": 1
-    },
-    {
-      "name": "Graphic",
-      "total": 3,
-      "completed": 0,
-      "in_progress": 1,
-      "not_started": 2,
-      "people": [
-        "Peter"
-      ],
-      "headcount": 1
-    },
-    {
-      "name": "Unassigned team",
-      "total": 3,
-      "completed": 0,
-      "in_progress": 0,
-      "not_started": 3,
-      "people": [
+        "Kittiphoom Treesam (Pea)",
+        "Peter",
         "Rahas Boobphakam (Code)",
         "Saran  Wisedcharakun (Mee)"
       ],
-      "headcount": 2
+      "headcount": 4
     }
   ],
   "turnaround": {
@@ -315,9 +295,7 @@
         "Saran  Wisedcharakun (Mee)"
       ],
       "priority": "Medium"
-    }
-  ],
-  "upcoming": [
+    },
     {
       "id": "DM-4",
       "name": "Luem Hung 3",
@@ -327,7 +305,9 @@
         "Kittiphoom Treesam (Pea)"
       ],
       "priority": "Lowest"
-    },
+    }
+  ],
+  "upcoming": [
     {
       "id": "DM-7",
       "name": "Luem Hung 5",
@@ -343,7 +323,7 @@
   ],
   "exec_summary": {
     "headline": "0 of 5 tasks complete (0%).",
-    "overdue": 3,
+    "overdue": 4,
     "urgent": 0,
     "in_progress": 2,
     "avg_turnaround_days": 0.0
