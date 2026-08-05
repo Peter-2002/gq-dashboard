@@ -159,10 +159,10 @@
     {
       "id": "GQ Occ",
       "name": "GQ Occ",
-      "total": 1,
+      "total": 2,
       "completed": 0,
       "in_progress": 0,
-      "not_started": 1,
+      "not_started": 2,
       "overdue": 0,
       "urgent": 0,
       "buckets": [
@@ -192,6 +192,30 @@
           "work_type": "Renovation",
           "tier": "Tier 3",
           "delay_reason": null
+        },
+        {
+          "id": "DM-10",
+          "name": "Automation Test",
+          "bucket": "New Request",
+          "status": "Not Started",
+          "priority": "Medium",
+          "assignees": [
+            "Kittiphoom Treesam (Pea)",
+            "Saran  Wisedcharakun (Mee)",
+            "Peter"
+          ],
+          "created": "2026-08-05",
+          "due": "2026-08-21",
+          "start": "2026-08-17",
+          "completed": "",
+          "overdue": false,
+          "labels": "",
+          "project": "GQ Occ",
+          "project_id": "GQ Occ",
+          "turnaround_days": null,
+          "work_type": "Renovation",
+          "tier": "Tier 3",
+          "delay_reason": null
         }
       ],
       "completion_pct": 0,
@@ -200,10 +224,10 @@
     }
   ],
   "overall": {
-    "total": 6,
+    "total": 7,
     "completed": 0,
     "in_progress": 2,
-    "not_started": 4,
+    "not_started": 5,
     "overdue": 4,
     "urgent": 0,
     "unassigned": 0,
@@ -213,27 +237,27 @@
   "workload": [
     {
       "name": "Kittiphoom Treesam (Pea)",
-      "team": "Unassigned team",
-      "total": 6,
+      "team": "Planner",
+      "total": 7,
       "completed": 0,
       "in_progress": 2,
-      "not_started": 4
+      "not_started": 5
     },
     {
       "name": "Saran  Wisedcharakun (Mee)",
       "team": "Unassigned team",
-      "total": 4,
+      "total": 5,
       "completed": 0,
       "in_progress": 0,
-      "not_started": 4
+      "not_started": 5
     },
     {
       "name": "Peter",
-      "team": "Unassigned team",
-      "total": 3,
+      "team": "Graphic",
+      "total": 4,
       "completed": 0,
       "in_progress": 1,
-      "not_started": 2
+      "not_started": 3
     },
     {
       "name": "Rahas Boobphakam (Code)",
@@ -246,18 +270,38 @@
   ],
   "team_workload": [
     {
-      "name": "Unassigned team",
-      "total": 6,
+      "name": "Planner",
+      "total": 7,
       "completed": 0,
       "in_progress": 2,
-      "not_started": 4,
+      "not_started": 5,
       "people": [
-        "Kittiphoom Treesam (Pea)",
-        "Peter",
+        "Kittiphoom Treesam (Pea)"
+      ],
+      "headcount": 1
+    },
+    {
+      "name": "Unassigned team",
+      "total": 5,
+      "completed": 0,
+      "in_progress": 0,
+      "not_started": 5,
+      "people": [
         "Rahas Boobphakam (Code)",
         "Saran  Wisedcharakun (Mee)"
       ],
-      "headcount": 4
+      "headcount": 2
+    },
+    {
+      "name": "Graphic",
+      "total": 4,
+      "completed": 0,
+      "in_progress": 1,
+      "not_started": 3,
+      "people": [
+        "Peter"
+      ],
+      "headcount": 1
     }
   ],
   "turnaround": {
@@ -267,9 +311,9 @@
   "deliverable_types": [
     {
       "type": "Renovation",
-      "count": 3,
+      "count": 4,
       "completed": 0,
-      "n": 3
+      "n": 4
     },
     {
       "type": "Campaign",
@@ -356,10 +400,22 @@
         "Kittiphoom Treesam (Pea)"
       ],
       "priority": "Medium"
+    },
+    {
+      "id": "DM-10",
+      "name": "Automation Test",
+      "project": "GQ Occ",
+      "due": "2026-08-21",
+      "assignees": [
+        "Kittiphoom Treesam (Pea)",
+        "Saran  Wisedcharakun (Mee)",
+        "Peter"
+      ],
+      "priority": "Medium"
     }
   ],
   "exec_summary": {
-    "headline": "0 of 6 tasks complete (0%).",
+    "headline": "0 of 7 tasks complete (0%).",
     "overdue": 4,
     "urgent": 0,
     "in_progress": 2,
