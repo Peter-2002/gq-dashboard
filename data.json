@@ -4,14 +4,15 @@
     {
       "id": "GQ Everyday",
       "name": "GQ Everyday",
-      "total": 1,
+      "total": 2,
       "completed": 0,
       "in_progress": 1,
-      "not_started": 0,
+      "not_started": 1,
       "overdue": 1,
       "urgent": 0,
       "buckets": [
-        "In Planning"
+        "In Planning",
+        "New Request"
       ],
       "tasks": [
         {
@@ -34,6 +35,30 @@
           "project_id": "GQ Everyday",
           "turnaround_days": null,
           "work_type": "Campaign",
+          "tier": "Tier 2",
+          "delay_reason": null
+        },
+        {
+          "id": "DM-9",
+          "name": "Mannually Test",
+          "bucket": "New Request",
+          "status": "Not Started",
+          "priority": "Medium",
+          "assignees": [
+            "Rahas Boobphakam (Code)",
+            "Saran  Wisedcharakun (Mee)",
+            "Kittiphoom Treesam (Pea)"
+          ],
+          "created": "2026-08-05",
+          "due": "2026-08-10",
+          "start": "2026-08-06",
+          "completed": "",
+          "overdue": false,
+          "labels": "",
+          "project": "GQ Everyday",
+          "project_id": "GQ Everyday",
+          "turnaround_days": null,
+          "work_type": "Renovation",
           "tier": "Tier 2",
           "delay_reason": null
         }
@@ -175,10 +200,10 @@
     }
   ],
   "overall": {
-    "total": 5,
+    "total": 6,
     "completed": 0,
     "in_progress": 2,
-    "not_started": 3,
+    "not_started": 4,
     "overdue": 4,
     "urgent": 0,
     "unassigned": 0,
@@ -188,71 +213,51 @@
   "workload": [
     {
       "name": "Kittiphoom Treesam (Pea)",
-      "team": "Planner",
-      "total": 5,
+      "team": "Unassigned team",
+      "total": 6,
       "completed": 0,
       "in_progress": 2,
-      "not_started": 3
+      "not_started": 4
+    },
+    {
+      "name": "Saran  Wisedcharakun (Mee)",
+      "team": "Unassigned team",
+      "total": 4,
+      "completed": 0,
+      "in_progress": 0,
+      "not_started": 4
     },
     {
       "name": "Peter",
-      "team": "Graphic",
+      "team": "Unassigned team",
       "total": 3,
       "completed": 0,
       "in_progress": 1,
       "not_started": 2
     },
     {
-      "name": "Saran  Wisedcharakun (Mee)",
-      "team": "Unassigned team",
-      "total": 3,
-      "completed": 0,
-      "in_progress": 0,
-      "not_started": 3
-    },
-    {
       "name": "Rahas Boobphakam (Code)",
       "team": "Unassigned team",
-      "total": 1,
+      "total": 2,
       "completed": 0,
       "in_progress": 0,
-      "not_started": 1
+      "not_started": 2
     }
   ],
   "team_workload": [
     {
-      "name": "Planner",
-      "total": 5,
+      "name": "Unassigned team",
+      "total": 6,
       "completed": 0,
       "in_progress": 2,
-      "not_started": 3,
+      "not_started": 4,
       "people": [
-        "Kittiphoom Treesam (Pea)"
-      ],
-      "headcount": 1
-    },
-    {
-      "name": "Graphic",
-      "total": 3,
-      "completed": 0,
-      "in_progress": 1,
-      "not_started": 2,
-      "people": [
-        "Peter"
-      ],
-      "headcount": 1
-    },
-    {
-      "name": "Unassigned team",
-      "total": 3,
-      "completed": 0,
-      "in_progress": 0,
-      "not_started": 3,
-      "people": [
+        "Kittiphoom Treesam (Pea)",
+        "Peter",
         "Rahas Boobphakam (Code)",
         "Saran  Wisedcharakun (Mee)"
       ],
-      "headcount": 2
+      "headcount": 4
     }
   ],
   "turnaround": {
@@ -261,13 +266,13 @@
   },
   "deliverable_types": [
     {
-      "type": "Campaign",
-      "count": 2,
+      "type": "Renovation",
+      "count": 3,
       "completed": 0,
-      "n": 2
+      "n": 3
     },
     {
-      "type": "Renovation",
+      "type": "Campaign",
       "count": 2,
       "completed": 0,
       "n": 2
@@ -339,10 +344,22 @@
         "Kittiphoom Treesam (Pea)"
       ],
       "priority": "Medium"
+    },
+    {
+      "id": "DM-9",
+      "name": "Mannually Test",
+      "project": "GQ Everyday",
+      "due": "2026-08-10",
+      "assignees": [
+        "Rahas Boobphakam (Code)",
+        "Saran  Wisedcharakun (Mee)",
+        "Kittiphoom Treesam (Pea)"
+      ],
+      "priority": "Medium"
     }
   ],
   "exec_summary": {
-    "headline": "0 of 5 tasks complete (0%).",
+    "headline": "0 of 6 tasks complete (0%).",
     "overdue": 4,
     "urgent": 0,
     "in_progress": 2,
