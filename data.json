@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-06",
+  "generated": "2026-08-07",
   "projects": [
     {
       "id": "GQ Everyday",
@@ -163,7 +163,7 @@
       "completed": 0,
       "in_progress": 0,
       "not_started": 2,
-      "overdue": 0,
+      "overdue": 1,
       "urgent": 0,
       "buckets": [
         "New Request"
@@ -184,7 +184,7 @@
           "due": "2026-08-06",
           "start": "2026-08-03",
           "completed": "",
-          "overdue": false,
+          "overdue": true,
           "labels": "",
           "project": "GQ Occ",
           "project_id": "GQ Occ",
@@ -228,7 +228,7 @@
     "completed": 0,
     "in_progress": 2,
     "not_started": 5,
-    "overdue": 4,
+    "overdue": 5,
     "urgent": 0,
     "unassigned": 0,
     "completion_pct": 0,
@@ -374,9 +374,7 @@
         "Kittiphoom Treesam (Pea)"
       ],
       "priority": "Lowest"
-    }
-  ],
-  "upcoming": [
+    },
     {
       "id": "DM-7",
       "name": "Luem Hung 5",
@@ -388,7 +386,9 @@
         "Kittiphoom Treesam (Pea)"
       ],
       "priority": "Medium"
-    },
+    }
+  ],
+  "upcoming": [
     {
       "id": "DM-9",
       "name": "Mannually Test",
@@ -416,7 +416,7 @@
   ],
   "exec_summary": {
     "headline": "0 of 7 tasks complete (0%).",
-    "overdue": 4,
+    "overdue": 5,
     "urgent": 0,
     "in_progress": 2,
     "avg_turnaround_days": 0.0
