@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-21",
+  "generated": "2026-08-22",
   "projects": [
     {
       "id": "GQ Everyday",
@@ -163,7 +163,7 @@
       "completed": 0,
       "in_progress": 0,
       "not_started": 2,
-      "overdue": 1,
+      "overdue": 2,
       "urgent": 0,
       "buckets": [
         "New Request"
@@ -208,7 +208,7 @@
           "due": "2026-08-21",
           "start": "2026-08-17",
           "completed": "",
-          "overdue": false,
+          "overdue": true,
           "labels": "",
           "project": "GQ Occ",
           "project_id": "GQ Occ",
@@ -228,7 +228,7 @@
     "completed": 0,
     "in_progress": 2,
     "not_started": 5,
-    "overdue": 6,
+    "overdue": 7,
     "urgent": 0,
     "unassigned": 0,
     "completion_pct": 0,
@@ -398,9 +398,7 @@
         "Kittiphoom Treesam (Pea)"
       ],
       "priority": "Medium"
-    }
-  ],
-  "upcoming": [
+    },
     {
       "id": "DM-10",
       "name": "Automation Test",
@@ -414,9 +412,10 @@
       "priority": "Medium"
     }
   ],
+  "upcoming": [],
   "exec_summary": {
     "headline": "0 of 7 tasks complete (0%).",
-    "overdue": 6,
+    "overdue": 7,
     "urgent": 0,
     "in_progress": 2,
     "avg_turnaround_days": 0.0
